@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <style>
+        .eli{
+            text-align: center;
+        }
+        @media screen and (max-width:600px) 
+        {
+            .eli{
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        if(localStorage.getItem("eli#1%5")=="yes"){
+            document.body.innerHTML+="<center><h1 class='eli'>Yay, You are Eligible for The Certificate 🥳</h1> <br><h2> Write Your Name to be printed on the certificate:<br><input id='inp' style='margin-top:10px;border: 3px solid black;font-size:20px;font-weight:700;text-align:center'><br><button style='margin-top:10px;font-size:20px;font-weight:700;color:white;background:#00bb25;text-shadow:1px 1px 2px black' onclick=gos()>Get Your Certificate</button>";
+        
+            }
+        else{
+            document.body.innerHTML+="<center><h1 class='eli'>Sorry, You are not Eligible for The Certificate 😔<h1><button style='cursor:pointer;margin-bottom:10px;font-size:30px;font-weight:600;text-shadow:1px 1px 5px black;color: white;border: 3px solid black;background: rgb(0, 128, 255);text-align: center;border-radius: 20px;padding-left: 12px;padding-right: 12px;' onclick='window.close()'>Try Again</button>";
+        }
+        function gos(){
+            if(document.getElementById('inp').value.trim().length!==0){
+                if(document.getElementById('inp').value.length<20){
+            localStorage.setItem("name#1%5",document.getElementById('inp').value)
+            window.open("certificate.html")
+                }
+                else{
+                    alert("Please Enter less than or equal to 20 characters for name !")
+                document.getElementById("inp").focus();
+
+                }
+            }
+            else{
+                alert("Please Enter Your Name.")
+                document.getElementById("inp").value="";
+                document.getElementById("inp").focus();
+            }
+        }
+    </script>
+    
+
+</body>
+</html>

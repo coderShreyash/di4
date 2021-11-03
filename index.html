@@ -1,0 +1,327 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Diwali Quiz</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      
+        .body{
+          z-index: -2;
+          display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 100vh;
+            background: radial-gradient(pink,violet,indigo);
+            overflow: hidden;
+        }
+        
+        .box{
+          position:absolute;z-index: 2;top:50%;left: 35%;transform: translateX(-10%);transform:translateY(-50%);
+        }
+.glow{
+  position: relative;
+min-width: 750px;
+height: 750px;
+margin: -150px;
+transform-origin: right;
+animation: colorc 5s linear infinite;
+}
+
+.glow:nth-child(even){
+  transform-origin: left;
+}
+
+@keyframes colorc {
+  0%{
+    filter: hue-rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100%{
+    filter: hue-rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.glow span{
+  position: absolute;
+  top: calc(80px*var(--i));
+  left: calc(80px*var(--i));
+  bottom: calc(80px*var(--i));
+  right: calc(80px*var(--i));
+}
+.glow span:before{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  width: 15px;
+  height: 15px;
+  
+
+  background: #f00;
+  border-radius: 50%;
+}
+.glow span:nth-child(3n+1):before
+{
+  background: rgba(134,255,0,1);
+  box-shadow: 0 0 20px rgba(134,255,0,1),
+  0 0 40px rgba(134,255,0,1),
+  0 0 60px rgba(134,255,0,1),
+  0 0 80px rgba(134,255,0,1),
+  0 0 0 8px rgba(134,255,0,.1);
+}
+
+.glow span:nth-child(3n+2):before{
+  background: rgba(255,214,0,1);
+  box-shadow: 0 0 20px rgba(255,214,0,1),
+  0 0 40px rgba(255,214,0,1),
+  0 0 60px rgba(255,214,0,1),
+  0 0 80px rgba(255,214,0,1),
+  0 0 0 8px rgba(255,214,0,.1);
+}
+
+.glow span:nth-child(3n+3):before{
+  background: rgba(0,226,255,1);
+  box-shadow: 0 0 20px rgba(0,226,255,1),
+  0 0 40px rgba(0,226,255,1),
+  0 0 60px rgba(0,226,255,1),
+  0 0 80px rgba(0,226,255,1),
+  0 0 0 8px rgba(0,226,255,.1);
+}
+.glow span:nth-child(3n+1)
+{
+  animation: animate 12s alternate infinite
+}
+.glow span:nth-child(3n+2)
+{
+  animation: animate-reverse 5s alternate infinite
+}
+
+.glow span:nth-child(3n+3)
+{
+  animation: animate 10s alternate infinite
+}
+
+@keyframes animate {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-reverse {
+  0%{
+    transform: rotate(360deg);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
+
+
+.lan,.len{
+animation: lights 1.5s linear infinite;
+}
+@keyframes lights {
+  0%,50%,100%{
+    transform: rotateZ(0deg);
+
+  }
+  25%{
+transform: rotateZ(30deg);
+  }
+  75%{
+transform: rotateZ(-30deg);
+  }
+}
+.h1 {
+        text-align: center;
+        color: white;
+        
+        transition: 0.5s;
+        font-family: Arial, Helvetica, sans-serif; 
+            text-shadow: 0 1px 0 green, 0 2px 0 green,
+                0 2px 0 green, 0 3px 0 green,
+                0 3px 0 green, 0 4px 0 green,
+                0 4px 0 green, 0 5px 0 green,
+                0 5px 0 green, 0 6px 0 green,
+                0 6px 0 green, 0 7px 0 green,
+                0 20px 30px rgba(0, 0, 0, 0.5);
+        }
+        .h22{
+            font-size: 30px;
+            font-weight: 700;
+            color: aliceblue;
+            text-shadow: 1px 1px 2px black;
+            text-align: center;
+        }
+        @media screen and (max-width:1300px) {
+          
+          .body{
+          z-index: -2;
+          display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;       
+            background: radial-gradient(violet,indigo);
+
+            overflow: hidden;
+            
+        }
+        .box{
+          position:absolute;z-index: 2;top:50%;left: 30%;transform: translateX(-10%);transform:translateY(-50%);
+        }
+        }
+        @media screen and (max-width:1000px) {
+          
+          .body{
+          z-index: -2;
+          display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;       
+            background: radial-gradient(violet,indigo);
+
+            overflow: hidden;
+            
+        }
+        .box{
+          position:absolute;z-index: 2;top:50%;left: 25%;transform: translateX(-10%);transform:translateY(-50%);
+          
+        }
+        }
+        @media screen and (max-width:800px) {
+          
+          .body{
+          z-index: -2;
+          display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;       
+            background: radial-gradient(violet,indigo);
+
+            overflow: hidden;
+            
+        }
+        .box{
+          position:absolute;z-index: 2;top:50%;left: 20%;transform: translateX(-10%);transform:translateY(-50%);
+        }
+        }
+        @media screen and (max-width:600px) {
+          
+          .body{
+          z-index: -2;
+          display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;       
+            background: radial-gradient(violet,indigo);
+
+            overflow: hidden;
+            
+        }
+        .box{
+          position:absolute;z-index: 2;top:50%;left: 10%;transform: translateX(-10%);transform:translateY(-50%);
+        }
+        }
+        @media screen and (max-width:500px) {
+          
+          .body{
+          z-index: -2;
+          display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;       
+            background: radial-gradient(violet,indigo);
+
+            overflow: hidden;
+            
+        }
+        .box{
+          position:absolute;z-index: 2;top:50%;left: 5%;transform: translateX(-10%);transform:translateY(-50%);
+        }
+        } @media screen and (max-width:400px) {
+          
+          .body{
+          z-index: -2;
+          display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;       
+            background: radial-gradient(violet,indigo);
+
+            overflow: hidden;
+            
+        }
+        .box{
+          position:absolute;z-index: 2;top:50%;left: 0%;transform: translateX(-10%);transform:translateY(-50%);
+        }
+        }
+        .typeText{
+    font-size: 2.5rem;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: .08em solid white;
+    width: 0;
+    animation: typing 5s steps(18, end) forwards;
+    text-shadow: 1px 1px 2px black;
+}
+@keyframes typing {
+    0% { width: 0 }
+    33%,100% { width: 100% }
+}
+</style>
+</head>
+<body>
+  <div class="body">
+  <div class="glow">
+    <span style="--i:1;"></span>
+    <span style="--i:2;"></span>
+    <span style="--i:3;"></span>
+  </div>
+
+  <div class="glow">
+    <span style="--i:1;"></span>
+    <span style="--i:2;"></span>
+    <span style="--i:3;"></span>
+
+  </div><div class="glow">
+    <span style="--i:1"></span>
+    <span style="--i:2"></span>
+    <span style="--i:3"></span>
+  </div>
+
+  <div class="glow">
+    <span style="--i:1"></span>
+    <span style="--i:2"></span>
+    <span style="--i:3"></span>
+  </div>
+  </div>
+
+  <div class="box">
+    <h1 class="typeText" style="text-align:center;color: white;margin-top:-10px;bottom: 20px;">The Diwali Quiz</h1>
+<div style="margin-top: -20px;margin-bottom:-20px;display: flex;justify-content: space-evenly;"><br>
+<img class="lan" src="big lantern.png" width = 70><img class="len" src="big lantern.png" width = 70><img class="lan" src="big lantern.png" width = 70></div>
+ <div style="text-align: center;"><br><br>
+  <h1 class="h22" style="color: #2183f3;">Answer some questions to get your </h1>
+  <br><h1 class="h1 h2" style="color: #21f34b;font-size: 40px;margin-top: -10px;">Special Certificate</h1> 
+   <div style="text-align: center;"><br><br>
+    <button style="text-align: center;color: white;background: greenyellow;font-size: 40px;font-weight: 700;border:2.5px solid green;text-shadow: 1px 1px 5px black;border-radius: 50px;padding-left: 20px;padding-right:20px;margin-top: -10px;"><a href="quest.html" target="_self" style="text-decoration: none;color: white;">Start</a></button>
+   </div>
+   </div>
+</body>
+</html>
