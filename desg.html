@@ -15,9 +15,34 @@
             }
         }
     </style>
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
+  
+  
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+  
+  <script> 
+        // Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyD0NrgQ2qp_-zbMprObOzDnPQLSt7YonCI",
+  authDomain: "diwali-b8de7.firebaseapp.com",
+  projectId: "diwali-b8de7",
+  storageBucket: "diwali-b8de7.appspot.com",
+  messagingSenderId: "779304906391",
+  appId: "1:779304906391:web:d7c3a403c1ff33ac7bc3d2"
+};
+firebase.initializeApp(firebaseConfig);
+    </script>
 </head>
 <body>
     <script>
+        var database = firebase.database();
+        users = 0;
+        database.ref("Users/users").on("value",function(data){
+            users = data.val();
+        })
         if(localStorage.getItem("eli#1%5")=="yes"){
             document.body.innerHTML+="<center><h1 class='eli'>Yay, You are Eligible for The Certificate 🥳</h1> <br><h2> Write Your Name to be printed on the certificate:<br><input id='inp' style='margin-top:10px;border: 3px solid black;font-size:20px;font-weight:700;text-align:center'><br><button style='margin-top:10px;font-size:20px;font-weight:700;color:white;background:#00bb25;text-shadow:1px 1px 2px black' onclick=gos()>Get Your Certificate</button>";
         
@@ -28,13 +53,27 @@
         function gos(){
             if(document.getElementById('inp').value.trim().length!==0){
                 if(document.getElementById('inp').value.length<20){
-            localStorage.setItem("name#1%5",document.getElementById('inp').value)
-            window.open("certificate.html")
-                }
+                localStorage.setItem("name#1%5",document.getElementById('inp').value);
+                window.open("certificate.html");
+                a = new Date();
+                database.ref("Users/users").on("value",function(data){
+            users = data.val();
+        })
+        users++;
+        database.ref("Users").set({
+            users:users
+        })
+        
+                database.ref("/"+users).set({
+                    Name:document.getElementById('inp').value,
+                    Date:a.toString()
+                })
+                
+            }
                 else{
-                    alert("Please Enter less than or equal to 20 characters for name !")
+                alert("Please Enter less than or equal to 20 characters for name !");
                 document.getElementById("inp").focus();
-
+                
                 }
             }
             else{
